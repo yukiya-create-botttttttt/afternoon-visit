@@ -1,7 +1,8 @@
 # 《午後來訪》— 輕量互動視覺小說網頁遊戲
 
 網站連結：
-https://github.com/yukiya-create-botttttttt/afternoon-visit.git
+
+https://yukiya-create-botttttttt.github.io/afternoon-visit/
 (底下有全結局通關攻略)
 
 一個安靜溫暖的午後，窗外微風拂過，你來到一間明亮簡約的房間，與少女「晴夏」展開一段愜意的午後茶聚時光。
