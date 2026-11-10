@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="《午後來訪》— 輕量互動視覺小說網頁遊戲">
+  <title>午後來訪 — 輕量互動視覺小說</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Main Game Stage -->
+  <div id="game-container" class="game-container">
+    
+    <!-- Background Scene -->
+    <div id="scene-background" class="scene-background" style="background-image: url('assets/background/room.svg');">
+      <div class="sunbeam-overlay"></div>
+      <div class="vignette-overlay"></div>
+    </div>
+
+    <!-- Top Header Status Bar -->
+    <header class="top-bar">
+      <!-- Game Title Badge -->
+      <div class="title-badge">
+        <span class="game-title">午後來訪</span>
+        <span class="chapter-tag" id="chapter-tag">午後時光</span>
+      </div>
+
+      <!-- Favorability & Controls -->
+      <div class="top-controls">
+        <!-- Favorability Meter -->
+        <div class="favor-badge" id="favor-badge" title="晴夏的好感度">
+          <img src="assets/icon/heart.svg" alt="好感度" class="heart-icon" id="heart-icon">
+          <div class="favor-info">
+            <span class="favor-label">好感度</span>
+            <span class="favor-value" id="favor-value">50</span>
+          </div>
+          <div class="favor-bar-wrapper">
+            <div class="favor-bar-fill" id="favor-bar-fill" style="width: 50%;"></div>
+          </div>
+        </div>
+
+        <!-- Utility Buttons -->
+        <button id="btn-log" class="icon-btn" title="查看對話記錄 (LOG)" aria-label="對話記錄">
+          <img src="assets/icon/log.svg" alt="Log">
+          <span>回顧</span>
+        </button>
+        <button id="btn-settings" class="icon-btn" title="遊戲設定" aria-label="設定">
+          <img src="assets/icon/settings.svg" alt="設定">
+          <span>設定</span>
+        </button>
+        <button id="btn-restart" class="icon-btn" title="重新開始" aria-label="重新開始">
+          <img src="assets/icon/restart.svg" alt="重新開始">
+          <span>重來</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Character Standing Container -->
+    <div id="character-wrapper" class="character-wrapper">
+      <div class="character-avatar-container" id="character-container">
+        <!-- Standing Art Image -->
+        <img id="character-img" class="character-img" src="assets/character/normal.png" alt="晴夏">
+        
+        <!-- Interactive Click Hotzones -->
+        <div class="hotzone hotzone-head" data-zone="head" title="輕拍頭部"></div>
+        <div class="hotzone hotzone-body" data-zone="body" title="輕戳身體"></div>
+        <div class="hotzone hotzone-other" data-zone="other" title="互動交流"></div>
+
+        <!-- Floating Expression / Feedback Bubble -->
+        <div id="feedback-bubble" class="feedback-bubble hidden"></div>
+      </div>
+    </div>
+
+    <!-- Choices Area (Floating above dialogue box) -->
+    <div id="choices-container" class="choices-container hidden">
+      <!-- Dynamically generated choice buttons -->
+    </div>
+
+    <!-- Dialogue Box Area -->
+    <section id="dialogue-box" class="dialogue-box" aria-live="polite">
+      <!-- Name Plate -->
+      <div class="nameplate" id="nameplate">
+        <span id="speaker-name">晴夏</span>
+        <span class="speaker-role" id="speaker-role">訪客</span>
+      </div>
+
+      <!-- Dialogue Text Content -->
+      <div class="dialogue-content">
+        <p id="dialogue-text" class="dialogue-text"></p>
+        <div class="continue-indicator" id="continue-indicator" title="點擊繼續">▼</div>
+      </div>
+
+      <!-- Quick Action Hints -->
+      <div class="dialogue-footer">
+        <span class="hint-text" id="interaction-hint">💡 提示：點擊對話框推進劇情，亦可點擊晴夏進行互動</span>
+      </div>
+    </section>
+
+    <!-- Ending Modal Overlay -->
+    <div id="ending-modal" class="modal ending-modal hidden">
+      <div class="modal-card ending-card">
+        <div class="ending-ribbon" id="ending-ribbon">結局達成</div>
+        <h2 class="ending-title" id="ending-title">結局名稱</h2>
+        <div class="ending-illustration">
+          <img id="ending-character-img" src="assets/character/happy.png" alt="結局角色表情">
+        </div>
+        <p class="ending-desc" id="ending-desc">結局描述文本...</p>
+        <div class="ending-score">
+          <span>最終好感度：</span>
+          <strong id="final-favor-score">85</strong> / 100
+        </div>
+        <div class="ending-collection">
+          <div class="collection-title">── 結局成就收集 ──</div>
+          <div class="badges-row" id="ending-badges-row">
+            <!-- Dynamically populated badges -->
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button id="btn-ending-restart" class="action-btn primary-btn">重新體驗故事</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dialogue History Log Modal -->
+    <div id="log-modal" class="modal hidden">
+      <div class="modal-card log-card">
+        <div class="modal-header">
+          <h3>對話記錄 (LOG)</h3>
+          <button class="close-modal-btn" id="btn-close-log" aria-label="關閉">✕</button>
+        </div>
+        <div class="log-list" id="log-list">
+          <!-- Dynamically populated dialogue logs -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal hidden">
+      <div class="modal-card settings-card">
+        <div class="modal-header">
+          <h3>遊戲設定</h3>
+          <button class="close-modal-btn" id="btn-close-settings" aria-label="關閉">✕</button>
+        </div>
+        <div class="settings-content">
+          <div class="setting-row">
+            <label for="setting-text-speed">打字速度</label>
+            <select id="setting-text-speed" class="custom-select">
+              <option value="50">悠閒 (慢速)</option>
+              <option value="28" selected>標準 (適中)</option>
+              <option value="12">迅速 (快速)</option>
+              <option value="0">瞬間顯示</option>
+            </select>
+          </div>
+
+          <div class="setting-row">
+            <label for="setting-sound">互動提示音效 (Web Audio)</label>
+            <input type="checkbox" id="setting-sound" checked class="custom-toggle">
+          </div>
+
+          <div class="setting-row">
+            <label for="setting-auto">自動播放劇情 (Auto)</label>
+            <input type="checkbox" id="setting-auto" class="custom-toggle">
+          </div>
+
+          <div class="setting-divider"></div>
+
+          <div class="setting-row">
+            <span>重置遊玩進度</span>
+            <button id="btn-clear-storage" class="action-btn danger-btn">清除儲存資料</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+

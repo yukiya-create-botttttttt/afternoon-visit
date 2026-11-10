@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Background wall gradient -->
+    <linearGradient id="wallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5EB"/>
+      <stop offset="60%" stop-color="#FDE8D0"/>
+      <stop offset="100%" stop-color="#F4D3B4"/>
+    </linearGradient>
+
+    <!-- Warm sunlight stream -->
+    <linearGradient id="sunbeam" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9E6" stop-opacity="0.45"/>
+      <stop offset="50%" stop-color="#FFE8A3" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#FFE082" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Wooden floor gradient -->
+    <linearGradient id="floorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C89D7C"/>
+      <stop offset="30%" stop-color="#B88560"/>
+      <stop offset="100%" stop-color="#8F5E38"/>
+    </linearGradient>
+
+    <!-- Window sky gradient -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#87CEEB"/>
+      <stop offset="50%" stop-color="#BEE4F8"/>
+      <stop offset="100%" stop-color="#FFE3BA"/>
+    </linearGradient>
+
+    <!-- Window frame shadow -->
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#835230" flood-opacity="0.15"/>
+    </filter>
+
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFF7CD" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FFE29A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Wall Background -->
+  <rect width="1920" height="780" fill="url(#wallGrad)"/>
+
+  <!-- Baseboard Trim -->
+  <rect y="760" width="1920" height="30" fill="#EAD2BB"/>
+  <rect y="785" width="1920" height="10" fill="#D4B499"/>
+
+  <!-- Wooden Floor -->
+  <rect y="790" width="1920" height="290" fill="url(#floorGrad)"/>
+
+  <!-- Floor Planks Perspective lines -->
+  <g stroke="#7C4E2A" stroke-width="2" opacity="0.4">
+    <line x1="0" y1="840" x2="1920" y2="840"/>
+    <line x1="0" y1="910" x2="1920" y2="910"/>
+    <line x1="0" y1="990" x2="1920" y2="990"/>
+    <line x1="150" y1="790" x2="0" y2="1080"/>
+    <line x1="450" y1="790" x2="300" y2="1080"/>
+    <line x1="800" y1="790" x2="720" y2="1080"/>
+    <line x1="1150" y1="790" x2="1230" y2="1080"/>
+    <line x1="1500" y1="790" x2="1650" y2="1080"/>
+    <line x1="1800" y1="790" x2="1920" y2="1000"/>
+  </g>
+
+  <!-- Large Window (Left side) -->
+  <g id="window" filter="url(#softShadow)">
+    <!-- Window Opening Sky -->
+    <rect x="180" y="80" width="460" height="600" rx="20" fill="url(#skyGrad)"/>
+
+    <!-- Distant clouds in window -->
+    <ellipse cx="280" cy="220" rx="70" ry="30" fill="#FFFFFF" opacity="0.7"/>
+    <ellipse cx="320" cy="210" rx="50" ry="25" fill="#FFFFFF" opacity="0.8"/>
+    <ellipse cx="500" cy="300" rx="90" ry="35" fill="#FFFFFF" opacity="0.6"/>
+
+    <!-- Green foliage outside window -->
+    <path d="M 180,680 Q 250,560 320,620 Q 380,540 460,610 Q 550,530 640,680 Z" fill="#78B159" opacity="0.85"/>
+    <path d="M 220,680 Q 300,580 390,640 Q 480,570 560,650 Q 610,600 640,680 Z" fill="#588D38" opacity="0.7"/>
+
+    <!-- Window Frame Outer -->
+    <rect x="170" y="70" width="480" height="620" rx="24" fill="none" stroke="#FFFFFF" stroke-width="20"/>
+    <rect x="160" y="680" width="500" height="24" rx="6" fill="#F0DFC8"/>
+
+    <!-- Window Mullions (Panes) -->
+    <line x1="410" y1="80" x2="410" y2="680" stroke="#FFFFFF" stroke-width="12"/>
+    <line x1="180" y1="360" x2="640" y2="360" stroke="#FFFFFF" stroke-width="12"/>
+
+    <!-- Curtains -->
+    <!-- Left Curtain -->
+    <path d="M 140,50 Q 200,80 230,120 Q 210,380 180,690 L 120,690 L 120,50 Z" fill="#FFFBF5" opacity="0.85"/>
+    <!-- Right Curtain -->
+    <path d="M 680,50 Q 620,80 590,120 Q 610,380 640,690 L 700,690 L 700,50 Z" fill="#FFFBF5" opacity="0.85"/>
+    <!-- Curtain Rod -->
+    <rect x="110" y="45" width="600" height="12" rx="6" fill="#D3A270"/>
+    <circle cx="110" cy="51" r="12" fill="#B58150"/>
+    <circle cx="710" cy="51" r="12" fill="#B58150"/>
+  </g>
+
+  <!-- Warm Sunlight Beam Across Room -->
+  <polygon points="200,80 620,80 1480,1080 350,1080" fill="url(#sunbeam)"/>
+
+  <!-- Bookshelf (Right side) -->
+  <g id="bookshelf" filter="url(#softShadow)">
+    <rect x="1500" y="140" width="320" height="660" rx="10" fill="#9C6B46"/>
+    <rect x="1515" y="155" width="290" height="630" fill="#7D4F2E"/>
+    
+    <!-- Shelves -->
+    <rect x="1515" y="320" width="290" height="18" fill="#AF7E57"/>
+    <rect x="1515" y="490" width="290" height="18" fill="#AF7E57"/>
+    <rect x="1515" y="660" width="290" height="18" fill="#AF7E57"/>
+
+    <!-- Books on Shelf 1 -->
+    <rect x="1530" y="210" width="28" height="110" rx="3" fill="#E26D5C"/>
+    <rect x="1562" y="195" width="34" height="125" rx="3" fill="#38B000"/>
+    <rect x="1600" y="220" width="25" height="100" rx="3" fill="#3A86FF"/>
+    <rect x="1628" y="200" width="40" height="120" rx="3" fill="#FFBE0B"/>
+    <rect x="1672" y="225" width="30" height="95" rx="3" fill="#8338EC"/>
+    <rect x="1706" y="210" width="26" height="110" rx="3" fill="#FB5607"/>
+    <!-- Small Plant on Shelf 1 -->
+    <rect x="1750" y="280" width="35" height="40" rx="5" fill="#E8D1BA"/>
+    <circle cx="1767" cy="265" r="18" fill="#40916C"/>
+    <circle cx="1757" cy="255" r="12" fill="#52B788"/>
+    <circle cx="1777" cy="257" r="14" fill="#74C69D"/>
+
+    <!-- Books on Shelf 2 -->
+    <rect x="1530" y="380" width="35" height="110" rx="3" fill="#4361EE"/>
+    <rect x="1568" y="365" width="40" height="125" rx="3" fill="#F72585"/>
+    <rect x="1612" y="390" width="30" height="100" rx="3" fill="#7209B7"/>
+    <!-- Leaning book -->
+    <g transform="translate(1645, 400) rotate(18)">
+      <rect x="0" y="0" width="30" height="105" rx="3" fill="#4CC9F0"/>
+    </g>
+    <!-- Photo Frame -->
+    <rect x="1735" y="400" width="55" height="70" rx="4" fill="#D4AF37"/>
+    <rect x="1742" y="407" width="41" height="56" fill="#F8F9FA"/>
+    <circle cx="1762" cy="425" r="12" fill="#FFAAA6"/>
+
+    <!-- Books & Globe on Shelf 3 -->
+    <rect x="1530" y="560" width="45" height="100" rx="3" fill="#606C38"/>
+    <rect x="1578" y="540" width="38" height="120" rx="3" fill="#283618"/>
+    <rect x="1620" y="570" width="42" height="90" rx="3" fill="#DDA15E"/>
+    <!-- Crystal ball / decor -->
+    <circle cx="1730" cy="625" r="22" fill="#E0FBFC" opacity="0.8" stroke="#90E0EF" stroke-width="3"/>
+    <rect x="1718" y="645" width="24" height="15" rx="3" fill="#D4A373"/>
+  </g>
+
+  <!-- Potted Monstera / Houseplant (Left Corner) -->
+  <g id="plant" transform="translate(100, 710)" filter="url(#softShadow)">
+    <!-- White Pot -->
+    <polygon points="40,160 120,160 105,250 55,250" fill="#FDFCFA"/>
+    <ellipse cx="80" cy="160" rx="40" ry="10" fill="#D6CCC2"/>
+    <!-- Stems and Leaves -->
+    <path d="M 80,160 Q 60,80 10,60 Q 40,50 80,110 Z" fill="#2D6A4F"/>
+    <path d="M 80,160 Q 95,60 70,10 Q 110,40 85,120 Z" fill="#40916C"/>
+    <path d="M 80,160 Q 130,90 160,50 Q 140,90 90,130 Z" fill="#52B788"/>
+    <path d="M 80,160 Q 40,120 0,110 Q 30,135 75,150 Z" fill="#1B4332"/>
+    <path d="M 80,160 Q 120,130 150,130 Q 120,150 85,155 Z" fill="#2D6A4F"/>
+  </g>
+
+  <!-- Side Table & Tea (Left-Center Foreground) -->
+  <g id="tea-table" transform="translate(380, 800)" filter="url(#softShadow)">
+    <!-- Table shadow -->
+    <ellipse cx="100" cy="180" rx="90" ry="25" fill="#4A2E1B" opacity="0.3"/>
+    <!-- Table Legs -->
+    <line x1="45" y1="120" x2="35" y2="180" stroke="#7A4B29" stroke-width="8" stroke-linecap="round"/>
+    <line x1="155" y1="120" x2="165" y2="180" stroke="#7A4B29" stroke-width="8" stroke-linecap="round"/>
+    <line x1="100" y1="120" x2="100" y2="175" stroke="#5E371C" stroke-width="8" stroke-linecap="round"/>
+    <!-- Table Top -->
+    <ellipse cx="100" cy="120" rx="95" ry="32" fill="#E3C39D"/>
+    <ellipse cx="100" cy="116" rx="93" ry="30" fill="#F4E0C9"/>
+
+    <!-- Teacup and Saucer -->
+    <ellipse cx="100" cy="115" rx="30" ry="12" fill="#FFFFFF"/>
+    <path d="M 85,108 C 85,125 115,125 115,108 Z" fill="#FFFFFF" stroke="#F1DCA7" stroke-width="1.5"/>
+    <!-- Tea liquid -->
+    <ellipse cx="100" cy="109" rx="13" ry="4" fill="#C87D32"/>
+    <!-- Cup handle -->
+    <path d="M 115,109 C 122,109 122,117 114,117" fill="none" stroke="#FFFFFF" stroke-width="3"/>
+    <!-- Gentle Steam -->
+    <path d="M 98,102 Q 95,92 100,85 Q 105,78 98,70" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.6" stroke-linecap="round"/>
+    <path d="M 104,103 Q 107,94 103,87 Q 99,80 104,73" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.4" stroke-linecap="round"/>
+
+    <!-- Small plate with cookies -->
+    <ellipse cx="145" cy="122" rx="22" ry="10" fill="#FCEADE"/>
+    <circle cx="140" cy="121" r="5" fill="#D4A373"/>
+    <circle cx="150" cy="122" r="6" fill="#BC6C25"/>
+  </g>
+
+  <!-- Cozy Wall Clock (Center-Right top) -->
+  <g id="clock" transform="translate(1250, 160)" filter="url(#softShadow)">
+    <circle cx="0" cy="0" r="65" fill="#FFFFFF" stroke="#AF7E57" stroke-width="10"/>
+    <circle cx="0" cy="0" r="5" fill="#5A3A1E"/>
+    <!-- Clock Hands (Approx 2:40 PM) -->
+    <line x1="0" y1="0" x2="22" y2="12" stroke="#5A3A1E" stroke-width="4" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="-25" y2="30" stroke="#5A3A1E" stroke-width="3" stroke-linecap="round"/>
+    <!-- Clock ticks -->
+    <line x1="0" y1="-50" x2="0" y2="-44" stroke="#8C6239" stroke-width="3"/>
+    <line x1="50" y1="0" x2="44" y2="0" stroke="#8C6239" stroke-width="3"/>
+    <line x1="0" y1="50" x2="0" y2="44" stroke="#8C6239" stroke-width="3"/>
+    <line x1="-50" y1="0" x2="-44" y2="0" stroke="#8C6239" stroke-width="3"/>
+  </g>
+
+  <!-- Hanging Pendant Lamp (Warm light) -->
+  <g id="lamp" transform="translate(960, 0)">
+    <line x1="0" y1="0" x2="0" y2="120" stroke="#4A3B32" stroke-width="3"/>
+    <!-- Lamp Shade -->
+    <path d="M -50,150 L 50,150 L 35,120 L -35,120 Z" fill="#F4A261"/>
+    <!-- Warm Bulb Glow -->
+    <ellipse cx="0" cy="150" rx="35" ry="8" fill="#FFF275"/>
+    <circle cx="0" cy="155" r="45" fill="url(#sunGlow)"/>
+  </g>
+</svg>
+
